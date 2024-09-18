@@ -107,3 +107,52 @@ foreach (var c in sulySzerintCsokkeno)
 {
     Console.WriteLine($"\t- {c}");
 }
+
+
+/* first
+ * firstordefault
+ * last
+ * lastordefault
+ * single
+ * singleordefault
+ *-------------
+ * find
+ * find all
+ * index of
+ */
+
+var first = cats.First(c => c.Breed == "unikornis");
+Console.WriteLine($"Az első perzsa cica: {first}");
+//ha VAN EGYEZÉS, akkor az első "matching element"-el tár vissza
+//ha nincs egyezés, akkor "sequence contains no matching element" exception-t dob
+
+
+var lst = cats.Last(c => c.Sex);
+Console.WriteLine($"Az utolsó kisfiú: {lst}");
+//ha VAN EGYEZÉS, akkor az UTOLSÓ "matching element"-el tár vissza
+//ha nincs egyezés, akkor "sequence contains no matching element" exception-t dob
+
+var single = cats.Single(c => c.Breed == "szfinx");
+Console.WriteLine($"Az egyetlen szfinx: {single}");
+//ha EGYETLEN EGY egyezés van, akkor a matching element-el tér vissza
+//ha több egyezés van, akkor "sequence contains more than one matching element" exception-t dob
+//ha egyáltalán nincs egyezés, akkor "sequence contains no matching element" exception-t dob
+
+
+var firstod = cats.FirstOrDefault(c => c.Breed == "perzsa");
+Console.WriteLine($"Az első perzsa cica: {first}");
+//ha VAN EGYEZÉS, akkor az első "matching element"-el tár vissza
+//ha nincs egyezés, akkor ún. "default value"-val tér vissza (null, 0, false, stb.)
+
+
+var lastod = cats.LastOrDefault(c => c.Sex);
+Console.WriteLine($"Az utolsó kisfiú: {lastod}");
+//ha VAN EGYEZÉS, akkor az UTOLSÓ "matching element"-el tár vissza
+//ha nincs egyezés, akkor "sequence contains no matching element" exception-t dob
+
+
+var singleod = cats.SingleOrDefault(c => c.Breed == "szfinx");
+Console.WriteLine($"Az egyetlen szfinx: {singleod}");
+//ha EGYETLEN EGY egyezés van, akkor a matching element-el tér vissza
+//ha nincs egyezés, akkor ún. "default value"-val tér vissza (null, 0, false, stb.)
+
